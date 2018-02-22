@@ -1,0 +1,12 @@
+ecdsa
+mbed-ls==1.3.6
+mbed-cli
+jsonmerge
+yattag
+semver
+websocket-client==0.37.0
+pycrypto
+coloredlogs
+requests
+click
+pexpect

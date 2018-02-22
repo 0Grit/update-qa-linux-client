@@ -1,0 +1,6 @@
+version: "3"
+services:
+  virtial-client:
+    build: .
+    image: update-qa/virtual-client
+
