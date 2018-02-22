@@ -9,7 +9,6 @@ RUN apt-get update && \
     pip2 install --no-cache-dir --upgrade pip && \
     pip2 install virtualenv
 
-
 # Checkout git repos for build and test
 RUN ./setup.sh
 

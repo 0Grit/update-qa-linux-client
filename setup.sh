@@ -3,7 +3,8 @@ set -x
 BASEDIR=$PWD/$(dirname "$0")
 VENV=venv
 WORKSPACE=$BASEDIR/workspace
-mkdir workspace
+mkdir $WORKSPACE
+
 : ${MANIFESTTOOL_REPO:=manifest-tool-internal}
 : ${MANIFESTTOOL_BRANCH:=v1.2rc4}
 : ${PYTHON_SDK:=1.2.4}
@@ -13,10 +14,6 @@ mkdir workspace
 virtualenv $VENV -p  python2.7 --no-site-packages
 source $VENV/bin/activate
 pip install -r requirements.txt
-
-git clone https://github.com/ARMmbed/$APP_REPO.git $WORKSPACE/$APP_REPO
-cd $WORKSPACE/$APP_REPO
-git checkout $APP_BRANCH
 
 git clone https://github.com/ARMmbed/$MANIFESTTOOL_REPO.git $WORKSPACE/manifest-tool
 cd $WORKSPACE/manifest-tool
@@ -28,7 +25,10 @@ cd $WORKSPACE/mbed-cloud-sdk-python
 git checkout $PYTHON_SDK
 python setup.py install
 
-cd $WORKSPACE/${APP_REPO}
+git clone https://github.com/ARMmbed/$APP_REPO.git $WORKSPACE/$APP_REPO
+cd $WORKSPACE/$APP_REPO
+git checkout $APP_BRANCH
+d $WORKSPACE/${APP_REPO}
 mbed deploy
 
 # script directory contains firmware metadata header extraction scripts
