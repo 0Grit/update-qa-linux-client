@@ -15,9 +15,14 @@ _download location of the firmware is provided in the define_app.txt_
 
 
 ## Running the virtual client
+*  After setting GITHUB_DEPLOY_USER, and GITHUB_DEPLOY_PWD, create netrc file which will be used inside the container 
+
+    echo "machine github.com login $GITHUB_DEPLOY_USER password $GITHUB_DEPLOY_PWD" > netrc
+    
 *  docker-compose build
 *  docker run
     _provide api_gw and key. By default it is running against saheer-uqa sandbox_
+    
     docker run --name virtual-linux -it -e API_GW=<api_gw> -e API_KEY=<api_key> --rm update-qa/virtual-client:latest  bash
     
 *  ./build.sh
