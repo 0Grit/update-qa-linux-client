@@ -37,7 +37,7 @@ _download location of the firmware is provided in the define_app.txt_
 
 
 ## Next Steps
-This is an example work needs to be moved to clitest (for SyTe) and update-service-integration. B
+This is an example work, needs to be moved to clitest (for SyTe) and update-service-integration. 
 
 * The setup.sh and build.sh should be moved to update-service-integration repo as a python script. When running for multiple devices, making update campaign device filter on vendor id could be the easier way to target multiple deivces.
 
