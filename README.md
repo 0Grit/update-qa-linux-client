@@ -24,7 +24,7 @@ _download location of the firmware is provided in the define_app.txt_
     _this creates a 'template device' in 'app_dir_template'. Multiple devices can be created by copying the directory_
 
 *  Run the client. 
-    *   source venv/bin/activate [ TODO: Remove from venv from container ]
+    *   source venv/bin/activate [ TODO: Remove venv from container ]
     *   create new device from template: cp -r app_dir_template 01
     *   cd to directory where the binary is. This is an important step as update expects the shell scripts to be 3 level up  and firmware is downloaded in the $PWD
         
