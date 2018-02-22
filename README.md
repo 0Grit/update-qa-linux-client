@@ -14,24 +14,33 @@ In normal RPi, after a successful firmware is download, device will reboot and h
 _download location of the firmware is provided in the define_app.txt_
 
 
-
 ## Running the virtual client
 *  docker-compose build
 *  docker run
     _provide api_gw and key. By default it is running against saheer-uqa sandbox_
+    docker run --name virtual-linux -it -e API_GW=<api_gw> -e API_KEY=<api_key> --rm update-qa/virtual-client:latest  bash
+    
 *  ./build.sh
-    _this creates a 'template device' in . Multiple devices can be created by copying the directory _
+    _this creates a 'template device' in 'app_dir_template'. Multiple devices can be created by copying the directory_
 
 *  Run the client. 
-    *   cd to directory where the binary is. This is an important step. Update expects the shell scripts to be 3 level up
+    *   source venv/bin/activate [ TODO: Remove from venv from container ]
+    *   create new device from template: cp -r app_dir_template 01
+    *   cd to directory where the binary is. This is an important step as update expects the shell scripts to be 3 level up           and firmware is downloaded in the $PWD
+        cd 01/00/00/00/
+    
     *   Run the "wrapper script" ./run_app.py
         _this registers the device and wait for 7 days for update_
+    
+    *   At this point device is ready, you may create the manifest, campaign etc by hand or script it!
 
 
 ## Next Steps
-This is an example work. 
+This is an example work needs to be moved to clitest (for SyTe) and update-service-integration. B
 
 * The setup.sh and build.sh should be moved to update-service-integration repo as a python script. When running for multiple devices, making update campaign device filter on vendor id could be the easier way to target multiple deivces.
+
+* Liase with https://github.com/ARMmbed/mbed-client-service and possibly add this in RAAS.
 
 ## known issues/investigation needed
 * More than 10 devices often had network timeout after registration. This made campaign to wait in publishing mode.
