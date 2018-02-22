@@ -24,9 +24,10 @@ _download location of the firmware is provided in the define_app.txt_
     _this creates a 'template device' in 'app_dir_template'. Multiple devices can be created by copying the directory_
 
 *  Run the client. 
-    *   source venv/bin/activate [ TODO: Remove from venv from container ]
-    *   create new device from template: cp -r app_dir_template 01
-    *   cd to directory where the binary is. This is an important step as update expects the shell scripts to be 3 level up           and firmware is downloaded in the $PWD
+    *   source venv/bin/activate [ TODO: Remove from venv from container ]
+    *   create new device from template: cp -r app_dir_template 01
+    *   cd to directory where the binary is. This is an important step as update expects the shell scripts to be 3 level up  and firmware is downloaded in the $PWD
+        
         cd 01/00/00/00/
     
     *   Run the "wrapper script" ./run_app.py
@@ -45,6 +46,6 @@ This is an example work needs to be moved to clitest (for SyTe) and update-servi
 ## known issues/investigation needed
 * More than 10 devices often had network timeout after registration. This made campaign to wait in publishing mode.
 * More than 100 devices will need BYOC flow. But, it most probably means compiling the binary for as many times as devices needed as one certificate can be used only for one. May be the 100 device limit can be overriden by some setting in admin portal
-* currenlt tests using this running in jenkins is not connecting to sandbox. Looks like a network issue.
+* currently tests using this running in jenkins is not connecting to sandbox. Looks like a network issue.
 
 
